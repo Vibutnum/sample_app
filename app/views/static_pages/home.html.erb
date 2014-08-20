@@ -1,0 +1,33 @@
+<% if signed_in? %>
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/stats' %>
+      </section>
+      <section>
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+    <div class="span8">
+      <h3>微博</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+  <div class="center hero-unit">
+    <h1>欢迎来到 微博</h1>
+  
+    <h2>
+      你可以通过发表一篇微博，来让大家认识你
+    </h2>
+
+
+    <%= link_to "注册", signup_path, class: "btn btn-large btn-primary" %>
+
+  </div>
+ 
+<% end %>
+ 

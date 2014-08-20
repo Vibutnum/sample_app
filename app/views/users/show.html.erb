@@ -1,0 +1,28 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+       
+        <%= @user.name %>
+      </h1>
+    </section>
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
+    <section>
+      <%= render 'follow_form' if signed_in? %>
+    </section>
+  </aside>
+  <div class="span8">
+    
+    <% if @user.microposts.any? %>
+      <h3>微博 (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+       
+      <%= will_paginate @microposts, :previous_label => '上一页'.html_safe, :next_label => '下一页'.html_safe %>
+    <% end %>
+  </div>
+</div>

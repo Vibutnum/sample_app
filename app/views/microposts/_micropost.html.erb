@@ -1,0 +1,15 @@
+<table class='table'>
+  <li>
+    <span class="content"><%= micropost.content %></span>
+    <span class="timestamp">
+      <%= micropost.created_at.localtime.to_s(:db) %>  
+    </span>
+    <%= link_to "详细", micropost_path(micropost) %>
+    <% if current_user?(micropost.user) %>
+    <%= link_to "删除", micropost, method: :delete,
+                                   data: { confirm: "You sure?" },
+                                   title: micropost.content %>
+  
+    <% end %>
+  </li>
+</table>

@@ -1,0 +1,14 @@
+<table class='table'>
+  <a href="<%= user_path(current_user) %>">
+    
+  </a>
+  <h1>
+    <%= current_user.name %>
+  </h1>
+  <span>
+    <%= link_to "个人资料", current_user %>
+  </span>
+  <span>
+    <b>微博:</b> <%= current_user.microposts.count %>
+  </span>
+</table>
